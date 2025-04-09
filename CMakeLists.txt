@@ -1,0 +1,64 @@
+﻿cmake_minimum_required (VERSION 3.20)
+project (DTS-web VERSION 1.0 LANGUAGES CXX)
+
+
+# 统一设置QT的资源的编译
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+if (WIN32)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /utf-8")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /utf-8")
+endif()
+
+message(STATUS "CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(QT_VERSION_MAJOR 5) 
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Network Concurrent WinExtras)
+
+message(STATUS "Current QT_VERSION: " ${QT_VERSION})
+message(STATUS "Current Qt_DIR: " ${Qt${QT_VERSION_MAJOR}_DIR})
+
+message(STATUS "CMAKE_CXX_COMPILER_ID:" ${CMAKE_CXX_COMPILER_ID})
+
+# 生成文件的路径
+SET(BIN_DIR         ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/bin)
+SET(LIB_DIR         ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/lib)
+#SET(PLUGIN_DIR      ${CMAKE_CURRENT_SOURCE_DIR}/${CMAKE_BUILD_TYPE}/plugins)
+SET(PDB_DIR         ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/pdb)
+
+EXECUTE_PROCESS(
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${BIN_DIR}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${LIB_DIR}
+    # COMMAND ${CMAKE_COMMAND} -E make_directory ${PLUGIN_DIR}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${PDB_DIR}
+)
+SET(LIBRARY_OUTPUT_PATH ${LIB_DIR})
+SET(EXECUTABLE_OUTPUT_PATH ${BIN_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_DIR}) # 设置动态库的 DLL 文件生成位置
+SET(CMAKE_PDB_OUTPUT_DIRECTORY ${PDB_DIR})
+
+if(MSVC AND CMAKE_BUILD_TYPE STREQUAL "Release") # Check for MSVC and Release build type
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /Zi") #生成调试信息
+    set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF") #生成exe时加入调试信息
+    set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} /DEBUG /OPT:REF /OPT:ICF") #生成dll时加入调试信息
+endif() 
+
+
+## 全局link路径
+LINK_DIRECTORIES(
+    ${LIB_DIR}
+    )
+
+add_subdirectory(3rd)
+add_subdirectory (src)
+
+include(struct.cmake)
+
+
+
+

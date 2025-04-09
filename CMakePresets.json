@@ -1,0 +1,103 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "webassembly",
+      "description": "Configure for WebAssembly build",
+      "generator": "Ninja",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build-webassembly",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{EMSDK}/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+        "CMAKE_CXX_COMPILER": "$env{EMSDK}/upstream/emscripten/em++.bat",
+        "CMAKE_C_COMPILER": "$env{EMSDK}/upstream/emscripten/emcc.bat",
+        "CMAKE_MAKE_PROGRAM": "ninja"
+      }
+    },
+    {
+      "name": "mingw",
+      "description": "Configure for mingw build",
+      "generator": "Ninja",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build-mingw",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_MAKE_PROGRAM": "ninja"
+      }
+    },
+    {
+      "name": "win-vc++",
+      "description": "Configure for mingw build",
+      "generator": "Ninja",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build-win-vc++",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "cl.exe",
+        "CMAKE_CXX_COMPILER": "cl.exe",
+        "CMAKE_MAKE_PROGRAM": "ninja"
+      }
+    },
+    {
+      "name": "_x64-debug",
+      "displayName": "x64 Debug",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "hidden": true
+    },
+    {
+      "name": "_x64-release",
+      "displayName": "x64 Release",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "hidden": true
+    },
+    {
+      "name": "_x64-RelWithDebInfo",
+      "displayName": "x64 RelWithDebInfo",
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      },
+      "hidden": true
+    },
+    {
+      "hidden": true,
+      "name": "Qt",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "$env{QTDIR}"
+      },
+      "environment": {
+        "PATH": "$penv{PATH};$env{QTDIR}/bin"
+      },
+      "vendor": {
+        "qt-project.org/Qt": {
+          "checksum": "Sp19WUpde73JS7nK33HZMqVZTyI="
+        }
+      }
+    }
+  ],
+  "vendor": {
+    "qt-project.org/Presets": {
+      "checksum": "dAd5YufioFkvaX3sf6E2pKSOiSw="
+    }
+  }
+}

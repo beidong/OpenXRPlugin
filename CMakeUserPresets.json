@@ -1,0 +1,147 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "mingw_qt6_release",
+      "inherits": [
+        "mingw",
+        "6.5.3_mingw_64",
+        "_x64-release"
+      ],
+      "hidden": true
+    },
+    {
+      "name": "mingw_qt6_debug",
+      "description": "Configure for mingw_qt6 debug build",
+      "inherits": [
+        "mingw",
+        "6.5.3_mingw_64",
+        "_x64-debug"
+      ],
+      "hidden": true
+    },
+    {
+      "name": "win_vc++_RelWithDebInfo",
+      "description": "Configure for vc++_RelWithDebInfo build",
+      "inherits": [
+        "win-vc++",
+        "5.15.2_msvc2019_64",
+        "_x64-RelWithDebInfo"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "win_vc++_Release",
+      "description": "Configure for vc++_Release build",
+      "inherits": [
+        "win-vc++",
+        "5.15.2_msvc2019_64",
+        "_x64-release"
+      ],
+      "hidden": false
+    },
+    {
+      "name": "win_vc++_Debug",
+      "description": "Configure for vc++_Debug build",
+      "inherits": [
+        "win-vc++",
+        "5.15.2_msvc2019_64",
+        "_x64-debug"
+      ],
+      "hidden": false
+    },
+    {
+      "hidden": true,
+      "name": "5.15.2_msvc2019_64",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "C:\\Qt\\5.15.2\\msvc2019_64"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "6.5.3_mingw_64",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "C:/Qt/6.5.3/mingw_64"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "6.5.3_wasm_singlethread",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "C:/Qt/6.5.3/wasm_singlethread"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "6.5.3_wasm_multithread",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "C:/Qt/6.5.3/wasm_multithread"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "webassembly_3.1.25",
+      "inherits": "webassembly",
+      "environment": {
+        "EMSDK": "D:/emsdk"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      }
+    },
+    {
+      "hidden": true,
+      "name": "Qt-Default",
+      "inherits": "5.15.2_msvc2019_64",
+      "vendor": {
+        "qt-project.org/Default": {
+          "checksum": "hFHqn7KAkQOhAQUh9kbJbv7R0NY="
+        }
+      }
+    },
+    {
+      "hidden": true,
+      "name": "5.15.2_msvc2019_64",
+      "inherits": "Qt",
+      "environment": {
+        "QTDIR": "C:/Qt/5.15.2/msvc2019_64"
+      },
+      "architecture": {
+        "strategy": "external",
+        "value": "x64"
+      },
+      "generator": "Ninja",
+      "vendor": {
+        "qt-project.org/Version": {
+          "checksum": "e2VZU7zYyOUwSCH077aia3t5U+0="
+        }
+      }
+    }
+  ],
+  "vendor": {
+    "qt-project.org/Presets": {
+      "checksum": "U9RXMVKpt9kr70GlACCc4giV4/Q="
+    }
+  }
+}
