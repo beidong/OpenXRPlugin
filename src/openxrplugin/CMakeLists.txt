@@ -3,8 +3,15 @@ project(openxrplugin)
 
 message(STATUS "^-^ ============================== " ${PROJECT_NAME})
 
+
+set(OpenXR_DIR "${OPENXR_SDK_ROOT}/cmake")
+
+# 查找 OpenXR
+find_package(OpenXR REQUIRED)
+
 include_directories(
     ${JSONLIB_ROOT}
+    OpenXR::headers
 )
 
 set(PROJECT_SOURCES
@@ -18,5 +25,7 @@ set(PROJECT_SOURCES
 )
 
 add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE OpenXR::openxr_loader)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE OPENXRPLUGIN_LIBRARY)
