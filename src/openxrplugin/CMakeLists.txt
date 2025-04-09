@@ -11,6 +11,7 @@ find_package(OpenXR REQUIRED)
 
 include_directories(
     ${JSONLIB_ROOT}
+    ${SPDLOG_ROOT}
     OpenXR::headers
 )
 
