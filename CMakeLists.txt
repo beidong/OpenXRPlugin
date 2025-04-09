@@ -1,11 +1,5 @@
 ﻿cmake_minimum_required (VERSION 3.20)
-project (DTS-web VERSION 1.0 LANGUAGES CXX)
-
-
-# 统一设置QT的资源的编译
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+project (OpenXRPlugin VERSION 1.0 LANGUAGES CXX)
 
 if (WIN32)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /utf-8")
@@ -17,13 +11,17 @@ message(STATUS "CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(QT_VERSION_MAJOR 5) 
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Network Concurrent WinExtras)
+# 统一设置QT的资源的编译
+# set(CMAKE_AUTOUIC ON)
+# set(CMAKE_AUTOMOC ON)
+# set(CMAKE_AUTORCC ON)
+# set(QT_VERSION_MAJOR 5) 
+# find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Network Concurrent WinExtras)
 
-message(STATUS "Current QT_VERSION: " ${QT_VERSION})
-message(STATUS "Current Qt_DIR: " ${Qt${QT_VERSION_MAJOR}_DIR})
+# message(STATUS "Current QT_VERSION: " ${QT_VERSION})
+# message(STATUS "Current Qt_DIR: " ${Qt${QT_VERSION_MAJOR}_DIR})
 
-message(STATUS "CMAKE_CXX_COMPILER_ID:" ${CMAKE_CXX_COMPILER_ID})
+# message(STATUS "CMAKE_CXX_COMPILER_ID:" ${CMAKE_CXX_COMPILER_ID})
 
 # 生成文件的路径
 SET(BIN_DIR         ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/bin)
@@ -57,7 +55,7 @@ LINK_DIRECTORIES(
 add_subdirectory(3rd)
 add_subdirectory (src)
 
-include(struct.cmake)
+# include(struct.cmake)
 
 
 

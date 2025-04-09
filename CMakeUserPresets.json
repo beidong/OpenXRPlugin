@@ -35,7 +35,6 @@
       "description": "Configure for vc++_Release build",
       "inherits": [
         "win-vc++",
-        "5.15.2_msvc2019_64",
         "_x64-release"
       ],
       "hidden": false
@@ -45,7 +44,6 @@
       "description": "Configure for vc++_Debug build",
       "inherits": [
         "win-vc++",
-        "5.15.2_msvc2019_64",
         "_x64-debug"
       ],
       "hidden": false
