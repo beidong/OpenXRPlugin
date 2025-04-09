@@ -12,16 +12,16 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 统一设置QT的资源的编译
-# set(CMAKE_AUTOUIC ON)
-# set(CMAKE_AUTOMOC ON)
-# set(CMAKE_AUTORCC ON)
-# set(QT_VERSION_MAJOR 5) 
-# find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Network Concurrent WinExtras)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(QT_VERSION_MAJOR 5) 
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets WinExtras)
 
-# message(STATUS "Current QT_VERSION: " ${QT_VERSION})
-# message(STATUS "Current Qt_DIR: " ${Qt${QT_VERSION_MAJOR}_DIR})
+message(STATUS "Current QT_VERSION: " ${QT_VERSION})
+message(STATUS "Current Qt_DIR: " ${Qt${QT_VERSION_MAJOR}_DIR})
 
-# message(STATUS "CMAKE_CXX_COMPILER_ID:" ${CMAKE_CXX_COMPILER_ID})
+message(STATUS "CMAKE_CXX_COMPILER_ID:" ${CMAKE_CXX_COMPILER_ID})
 
 # 生成文件的路径
 SET(BIN_DIR         ${CMAKE_CURRENT_SOURCE_DIR}/build/${CMAKE_BUILD_TYPE}/bin)

@@ -29,4 +29,6 @@ add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE OpenXR::openxr_loader)
 
+set(OPENXRPLUGIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}" PARENT_SCOPE)
+
 target_compile_definitions(${PROJECT_NAME} PRIVATE OPENXRPLUGIN_LIBRARY)
