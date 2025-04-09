@@ -2,4 +2,6 @@
 /example/ViewWindow/obj/
 /example/ViewWindow/.vs/
 /build-win-vc++/
-/build/Debug/
+/build/
+/.vs/
+/out/
