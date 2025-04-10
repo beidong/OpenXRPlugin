@@ -28,7 +28,7 @@
         "5.15.2_msvc2019_64",
         "_x64-RelWithDebInfo"
       ],
-      "hidden": false
+      "hidden": true
     },
     {
       "name": "win_vc++_Release",
