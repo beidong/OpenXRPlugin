@@ -53,13 +53,12 @@ public:
     std::shared_ptr<spdlog::logger> getLoger() const { return m_pLogger; };
 
 private:
-    LibLog();
+    LibLog() = default;
     LibLog(const LibLog&) = delete;
     LibLog& operator=(const LibLog&) = delete;
 
 private:
     std::shared_ptr<spdlog::logger> m_pLogger = nullptr;
-    bool m_isInitaled = false;
 };
 
 #endif // LIBLOG_H

@@ -19,7 +19,7 @@ LibLog *LibLog::Instance()
 
 bool LibLog::init(const char* nFileName, const int nMaxFileSize, const int nMaxFile, const OutMode outMode, const OutPosition outPos, const OutLevel outLevel)
 {
-    if (m_isInitaled)
+    if (m_pLogger)
         return true;
 
     //const char* pFormat = "[%Y-%m-%d %H:%M:%S.%e] <thread %t> [%^%l%$][%@,%!]%v";
@@ -68,15 +68,8 @@ bool LibLog::init(const char* nFileName, const int nMaxFileSize, const int nMaxF
     }
     catch (const std::exception&)
     {
-        m_isInitaled = false;
         return false;
     }
-    m_isInitaled = true;
+
     return true;
-}
-
-LibLog::LibLog()
-    :m_isInitaled(false)
-{
-
 }
