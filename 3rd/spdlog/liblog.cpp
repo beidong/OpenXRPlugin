@@ -73,3 +73,11 @@ bool LibLog::init(const char* nFileName, const int nMaxFileSize, const int nMaxF
 
     return true;
 }
+
+void LibLog::setOutLevel(const OutLevel outLevel)
+{
+    if (!m_pLogger)
+        return;
+
+    m_pLogger->set_level((spdlog::level::level_enum)outLevel);
+}

@@ -50,6 +50,8 @@ public:
     bool init(const char* nFileName, const int nMaxFileSize = 1024 * 1024 * 5, const int nMaxFile = 5,
         const OutMode outMode = ASYNC, const OutPosition outPos = FILE, const OutLevel outLevel = LEVEL_DEBUG);
 
+    void setOutLevel(const OutLevel outLevel);
+
     std::shared_ptr<spdlog::logger> getLoger() const { return m_pLogger; };
 
 private:
