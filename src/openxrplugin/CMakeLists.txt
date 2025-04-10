@@ -11,9 +11,10 @@ find_package(OpenXR REQUIRED)
 
 include_directories(
     ${JSONLIB_ROOT}
-    ${SPDLOG_ROOT}
     OpenXR::headers
 )
+
+include(${LIBLOG_DIR}/LibLogConfig.cmake)
 
 set(PROJECT_SOURCES
     openxrplugin_global.h
@@ -27,7 +28,7 @@ set(PROJECT_SOURCES
 
 add_library(${PROJECT_NAME} SHARED ${PROJECT_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE OpenXR::openxr_loader)
+target_link_libraries(${PROJECT_NAME} PRIVATE OpenXR::openxr_loader liblog)
 
 set(OPENXRPLUGIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}" PARENT_SCOPE)
 

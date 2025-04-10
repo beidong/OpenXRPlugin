@@ -3,3 +3,7 @@
 /example/ViewWindow/.vs/
 /build-win-vc++/
 /build/Debug/
+/.vs/
+/.vscode/
+/build/
+/out/
